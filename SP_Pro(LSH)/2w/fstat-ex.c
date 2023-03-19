@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <string.h>
 
 int main(int argc, char *argv[]){
     struct stat statbuf;
@@ -31,7 +32,7 @@ int main(int argc, char *argv[]){
         }
     }
 
-    if(S_IREG(statbuf.st_mode)){
+    if(S_ISREG(statbuf.st_mode)){
         printf("%s is Regular File\n", argv[2]);
     }
     if(S_ISDIR(statbuf.st_mode)){

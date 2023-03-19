@@ -23,6 +23,7 @@ int main(int argc, char *argv[]){
         return 3;
     }
 
+    // Full buffering
     if(setvbuf(fpin, ubuf, _IOFBF, BUFFER_SIZE)!=0){
         perror("setvbuf(fpout)");
         return 4;
@@ -32,9 +33,9 @@ int main(int argc, char *argv[]){
         return 5;
     }
 
-    while(n=fread(fbuf, sizeof(char), BUFFER_SIZE, fpin)>0){
+    // copy
+    while((n=fread(fbuf, sizeof(char), BUFFER_SIZE, fpin))>0)
         fwrite(fbuf, sizeof(char), n, fpout);
-    }
 
     fclose(fpin);
     fclose(fpout);

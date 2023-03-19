@@ -3,27 +3,28 @@ FILE I/O example (1)
 Read first file, Append Second file
 */
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]){
     int c;
     FILE *fpin, *fpout;
 
-    if (argc!=3){
+    if(argc!=3){
         perror(argv[0]);
         exit(1);
     }
 
-    if ((fpin=fopen(argv[1], "r"))==NULL){
+    if((fpin=fopen(argv[1], "r"))==NULL){
         perror(argv[1]);
         exit(2);
     }
-
-    if ((fpout=fopen(argv[2], "a"))==NULL){
+    if((fpout=fopen(argv[2], "a"))==NULL){
         perror(argv[2]);
         exit(3);
     }
-    // unbuffered
-    setbuf(fpin, NULL); 
+
+    // unbufferd
+    setbuf(fpin, NULL);
     setbuf(fpout, NULL);
 
     while((c=getc(fpin))!=EOF)
