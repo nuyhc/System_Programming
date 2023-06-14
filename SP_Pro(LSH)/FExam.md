@@ -1857,7 +1857,7 @@ size_t strftime(
 - %Y: 년도 표시
 - %Z: Time zone
 
-# 족보
+
 ## 1. 아래와 같이 message queue를 이용해서 유저의 message queue를 전송하고 message queue를 제거하는 프로그램
 
 ```c
